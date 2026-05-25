@@ -1,116 +1,118 @@
-# Humanities Research Skills
+# Business Research Skills
 
-**專為會計學與經濟學研究生設計的 Claude Code 學術工具套件**
+**专为商科生设计的 Claude Code 学术工具套件**
 
-*An academic research toolkit for accounting and economics graduate students, powered by Claude Code.*
+*An academic research toolkit for business students, powered by Claude Code.*
 
 ---
 
-## 這是什麼？
+## 这是什么？
 
-Humanities Research Skills 是一套跑在 Claude Code 上的 Skill 套件，
-整合六大功能，支援從研究問題釐清到論文定稿的完整學術研究流程。
+Business Research Skills 是一套跑在 Claude Code 上的 Skill 套件，
+整合六大功能，支持从研究问题厘清到论文定稿的完整学术研究流程。
 
-最大特色：**串接 Stata MCP，讓 Claude 直接操作 Stata 執行量化分析。**
+一条流水线：**找文献 → 整理文献 → 跑 Stata 回归 → 写论文 → 审稿 → 定稿，全程自动调度。**
+
+最大特色：**可直接串接 Stata MCP，让 AI 能操作 Stata 执行量化分析、生成结果表格、记录研究日志，不需要你手动切换工具。**
 
 ---
 
 ## 六大 Skill
 
-| Skill | 功能 | 觸發範例 |
-|-------|------|---------|
-| 🔍 deep-research | 深度研究，14 代理，9 種模式 | 「幫我研究審計師任期與盈餘管理的關係」|
-| 📚 literature-review | 文獻綜述，從零到可貼進論文 | 「幫我做信息不對稱的文獻綜述」|
-| 📊 quantitative-analysis | 量化分析，串接 Stata MCP | 「幫我跑固定效應回歸」|
-| ✍️ academic-writing | 論文寫作，無 AI 味中文學術文 | 「幫我寫第三章研究設計」|
-| 🔬 academic-paper-reviewer | 審稿，7 代理模擬期刊委員會 | 「幫我審這篇論文」|
-| 🔄 research-pipeline | 全流程調度，一鍵跑完 | 「幫我跑完整研究流程」|
+| Skill                     | 功能                         | 触发范例                               |
+| ------------------------- | ---------------------------- | -------------------------------------- |
+| 🔍 deep-research           | 深度研究，14 代理，9 种模式  | 「帮我研究审计师任期与盈余管理的关系」 |
+| 📚 literature-review       | 文献综述，从零到可贴进论文   | 「帮我做信息不对称的文献综述」         |
+| 📊 quantitative-analysis   | 量化分析，串接 Stata MCP     | 「帮我跑固定效应回归」                 |
+| ✍️ academic-writing        | 论文写作，无 AI 味中文学术文 | 「帮我写第三章研究设计」               |
+| 🔬 academic-paper-reviewer | 审稿，7 代理模拟期刊委员会   | 「帮我审这篇论文」                     |
+| 🔄 research-pipeline       | 全流程调度，一键跑完         | 「帮我跑完整研究流程」                 |
 
 ---
 
-## 跟其他工具的差異
+## 跟其他工具的差异
 
-| 維度 | 一般 AI 工具 | 本套件 |
-|------|------------|--------|
-| 學科定位 | 通用 | 會計／經濟學專攻 |
-| 量化分析 | 無法執行 | 串接 Stata MCP 直接跑 |
-| 中文資料庫 | 不支援 | CNKI、CSSCI 搜尋規範 |
-| 引用格式 | 基本支援 | GB/T 7714 + APA 7.0 |
-| 期刊等級 | 不辨別 | CSSCI T1 / SSCI Q1 分級 |
-| 誠信查核 | 無 | 強制兩次假引用偵測 |
-| 日誌記錄 | 無 | 研究日誌 + Stata 執行日誌 |
+| 维度       | 一般 AI 工具 | 本套件                    |
+| ---------- | ------------ | ------------------------- |
+| 学科定位   | 通用         | 商科专攻（会计／经济学）  |
+| 量化分析   | 无法执行     | 串接 Stata MCP 直接跑     |
+| 中文数据库 | 不支持       | CNKI、CSSCI 搜索规范      |
+| 引用格式   | 基本支持     | GB/T 7714 + APA 7.0       |
+| 期刊等级   | 不辨别       | CSSCI T1 / SSCI Q1 分级   |
+| 诚信查核   | 无           | 强制两次假引用检测        |
+| 日志记录   | 无           | 研究日志 + Stata 执行日志 |
 
 ---
 
-## 快速開始
+## 快速开始
 
-### 1. 安裝 Claude Code
+### 1. 安装 Claude Code
 
 ```bash
 npm install -g @anthropic-ai/claude-code
 ```
 
-### 2. 安裝 Stata MCP（量化分析功能需要）
+### 2. 安装 Stata MCP（量化分析功能需要）
 
 ```bash
 claude mcp add stata-mcp --scope user -- uvx stata-mcp
 ```
 
-### 3. 下載本套件
+### 3. 下载本套件
 
 ```bash
-git clone https://github.com/你的用戶名/humanities-research-skills.git
-cd humanities-research-skills
+git clone https://github.com/你的用户名/business-research-skills.git
+cd business-research-skills
 ```
 
-### 4. 啟動 Claude Code
+### 4. 启动 Claude Code
 
 ```bash
 claude
 ```
 
-### 5. 開始使用
+### 5. 开始使用
 
 ```
 # 全流程
-幫我跑完整研究流程
+帮我跑完整研究流程
 
-# 單一功能
-幫我研究 ESG 披露對審計費用的影響
-幫我做碳信息披露的文獻綜述
-幫我跑固定效應回歸
-幫我寫第三章研究設計
-幫我審這篇論文
+# 单一功能
+帮我研究 ESG 披露对审计费用的影响
+帮我做碳信息披露的文献综述
+帮我跑固定效应回归
+帮我写第三章研究设计
+帮我审这篇论文
 ```
 
 ---
 
-## 檔案結構
+## 文件结构
 
 ```
-humanities-research-skills/
+business-research-skills/
 ├── .claude/
-│   └── CLAUDE.md                    ← 入口，統一調度
+│   └── CLAUDE.md                    ← 入口，统一调度
 │
 ├── deep-research/
 │   └── SKILL.md                     ← 深度研究
 │
 ├── literature-review/
-│   └── SKILL.md                     ← 文獻綜述
+│   └── SKILL.md                     ← 文献综述
 │
 ├── quantitative-analysis/
 │   └── SKILL.md                     ← 量化分析（Stata MCP）
 │
 ├── academic-writing/
-│   └── SKILL.md                     ← 論文寫作
+│   └── SKILL.md                     ← 论文写作
 │
 ├── academic-paper-reviewer/
-│   └── SKILL.md                     ← 審稿
+│   └── SKILL.md                     ← 审稿
 │
 ├── research-pipeline/
-│   └── SKILL.md                     ← 全流程調度
+│   └── SKILL.md                     ← 全流程调度
 │
-├── shared/                          ← 共用規範
+├── shared/                          ← 共用规范
 │   ├── handoff_schemas.md
 │   ├── citation_standards.md
 │   ├── writing_quality_check.md
@@ -121,58 +123,61 @@ humanities-research-skills/
 
 ---
 
-## 系統需求
+## 系统要求
 
 - Claude Code（最新版）
-- Claude Max 計畫或 API 金鑰（建議：full pipeline 耗用 token 較多）
-- Stata（量化分析功能需要，支援 Stata 16+）
+- Claude Max 计划或 API 密钥（建议：full pipeline 耗用 token 较多）
+- Stata（量化分析功能需要，支持 Stata 16+）
 - Python 3.8+（Stata MCP 需要）
 
 ---
 
-## 使用場景範例
+## 使用场景范例
 
-**場景 1：碩士論文第二章**
-```
-幫我做「審計師任期與盈餘管理」的文獻綜述，
-目標是 CSSCI 期刊，需要找 20-30 篇文獻，
-輸出可以直接貼進論文第二章的格式。
-```
+**场景 1：硕士论文第二章**
 
-**場景 2：量化分析**
 ```
-我的研究問題是「企業社會責任披露對融資成本的影響」，
-樣本是 2010-2022 年 A 股上市公司，
-幫我設計變數、跑固定效應回歸、做穩健性檢驗。
+帮我做「审计师任期与盈余管理」的文献综述，
+目标是 CSSCI 期刊，需要找 20-30 篇文献，
+输出可以直接贴进论文第二章的格式。
 ```
 
-**場景 3：投稿前審稿**
+**场景 2：量化分析**
+
 ```
-幫我審這篇論文，重點看方法論，
-特別是內生性處理和穩健性檢驗。
+我的研究问题是「企业社会责任披露对融资成本的影响」，
+样本是 2010-2022 年 A 股上市公司，
+帮我设计变量、跑固定效应回归、做稳健性检验。
+```
+
+**场景 3：投稿前审稿**
+
+```
+帮我审这篇论文，重点看方法论，
+特别是内生性处理和稳健性检验。
 ```
 
 ---
 
-## 注意事項
+## 注意事项
 
-- 本套件生成的所有引用請自行驗證，AI 有捏造引用的風險
-- 量化分析結果僅供參考，請結合專業判斷使用
-- full pipeline 模式耗用 token 較多，建議使用 Claude Max 計畫
-
----
-
-## 授權
-
-CC-BY-NC 4.0 — 可自由使用和修改，不可商業使用，請保留出處。
+- 本套件生成的所有引用请自行验证，AI 有捏造引用的风险
+- 量化分析结果仅供参考，请结合专业判断使用
+- full pipeline 模式耗用 token 较多，建议使用 Claude Max 计划
 
 ---
 
-## 致謝
+## 授权
 
-本套件的設計參考了 [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills)，
-在其基礎上針對會計／經濟學領域進行了深度改造，並加入了 Stata MCP 串接功能。
+CC-BY-NC 4.0 — 可自由使用和修改，不可商业使用，请保留出处。
 
 ---
 
-*如有問題或建議，歡迎提交 Issue 或 Pull Request。*
+## 致谢
+
+本套件的设计参考了 [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills)，
+在其基础上针对商科领域进行了深度改造，并加入了 Stata MCP 串接功能。
+
+---
+
+*如有问题或建议，欢迎提交 Issue 或 Pull Request。*
